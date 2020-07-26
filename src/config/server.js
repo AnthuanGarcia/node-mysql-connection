@@ -11,5 +11,6 @@ app.set('views', path.join(__dirname, '../app/views'));
 
 //
 app.use(bodyParser.urlencoded({extended: false}));
+app.use('/estilos', express.static('public'));
 
 module.exports = app;
