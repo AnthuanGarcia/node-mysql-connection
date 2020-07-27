@@ -76,7 +76,19 @@
 
 
                 <label for="cantidad">Cantidad de Equipos:</label>
-                <input type="number" id="cantidad" min="0">
+                <input type="number" id="cantidad" min="0" name="cantidad">
+
+                <label for="equipo">Tipo de equipo:</label>
+                <input type="equipo" id="equipo" placeholder="Hidroneumatico (Ejemplo)" name="equipo">
+
+                <label for="equipo">Codígo:</label>
+                <input type="equipo" id="equipo" placeholder="Compresor 1(Segun haya sido etiquetado por la compañia)" name="codigo">
+
+                <label for="equipo">Capacidad:</label>
+                <input type="equipo" id="equipo" placeholder="20L (Ejemplo)" name="capacidad">
+
+                <label for="equipo">Potencia:</label>
+                <input type="equipo" id="equipo" placeholder="5, 3, 1, 3/4, 1/2 HP (Ejemplos)" name="potencia">
 
                 <label for="mensaje">Información detallada</label>
                 <div class="container atributos">
@@ -110,9 +122,8 @@
                     </div>
 
                 </div>
-                <textarea id="mensaje" placeholder="Información necesaria para la cotización"></textarea>
 
-
+                <textarea id="mensaje" placeholder="Información adicional para la cotización" name="detalles"></textarea>
 
             </fieldset>
             <!-- <fieldset>
