@@ -1,6 +1,7 @@
 const dbConnection = require('../../config/dbConnection');
 const sendMail = require('./sendMail');
 
+var success = 0;
 module.exports = app => {
   //Const con la conexion con la BD
   const connection = dbConnection();
@@ -15,12 +16,12 @@ module.exports = app => {
   });
 
   app.get('/cotizaciones', (req, res) => {
-    res.render('vistas/cotizaciones');
+    res.render('vistas/cotizaciones', {success: success});
   });
 
   app.get('/servicios', (req, res) => {
     res.render('vistas/servicios');
-  }); 
+  });
 
   app.get('/productos', (req, res) => {
     
@@ -48,9 +49,11 @@ module.exports = app => {
     connection.query(`CALL agregarFactura(null, NOW(), (SELECT idCliente FROM cliente ORDER BY idCliente DESC LIMIT 1), 'efectivo');`, 
     (err, result) => {
       if (err){
+        res.redirect('/cotizaciones');
         console.log(err);
       } else {
         sendMail(cliente, pedido);
+        success = true;
         res.redirect('/cotizaciones');
       }
     });
