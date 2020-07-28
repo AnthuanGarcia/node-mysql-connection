@@ -1,5 +1,5 @@
 const dbConnection = require('../../config/dbConnection');
-const sendMail = require('./sendMail');
+const sendMail = require('./util/sendMail');
 
 var success = 0;
 module.exports = app => {
