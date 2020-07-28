@@ -46,18 +46,19 @@
         <h1 class="fw-300 centrar-texto">Solicita una cotización</h1>
         <form action="/cotizaciones" method="POST">
             <fieldset>
+                <label>* Campos necesarios</label>
                 <legend>Información del Solicitante</legend>
-                <label for="nombre">Nombre(s):</label>
-                <input type="text" id="nombre" placeholder="Nombre(s)" name="nombre">
+                <label for="nombre">Nombre(s)*:</label>
+                <input type="text" id="nombre" placeholder="Nombre(s)" name="nombre" required>
 
-                <label for="apellidoP">Apellido(s):</label>
-                <input type="text" id="apellidoP" placeholder="Apellido(s)" name="apellido">
+                <label for="apellidoP">Apellido(s)*:</label>
+                <input type="text" id="apellidoP" placeholder="Apellido(s)" name="apellido" required>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" placeholder="Tu correo electrónico" name="email">
+                <label for="email">E-mail*:</label>
+                <input type="email" id="email" placeholder="Tu correo electrónico" name="email" required>
 
-                <label for="tel">Teléfono:</label>
-                <input type="tel" id="tel" placeholder="Tu teléfono" name="telefono">
+                <label for="tel">Teléfono*:</label>
+                <input type="tel" id="tel" placeholder="Tu teléfono" name="telefono" required>
 
                 <label for="opciones">Puesto en la Empresa</label>
                 <select id="opciones">
@@ -74,17 +75,17 @@
             <fieldset>
                 <legend>Información de la Empresa</legend>
 
-                <label for="cantidad">Cantidad de Equipos:</label>
-                <input type="number" id="cantidad" min="0" name="cantidad">
+                <label for="cantidad">Cantidad de Equipos*:</label>
+                <input type="number" id="cantidad" min="0" name="cantidad" required>
 
-                <label for="equipo">Tipo de equipo:</label>
-                <input type="equipo" id="equipo" placeholder="Hidroneumatico (Ejemplo)" name="equipo">
+                <label for="equipo">Tipo de equipo*:</label>
+                <input type="equipo" id="equipo" placeholder="Hidroneumatico (Ejemplo)" name="equipo" required>
 
                 <label for="equipo">Codígo:</label>
                 <input type="equipo" id="equipo" placeholder="Compresor 1(Segun haya sido etiquetado por la compañia)" name="codigo">
 
-                <label for="equipo">Capacidad:</label>
-                <input type="equipo" id="equipo" placeholder="20L (Ejemplo)" name="capacidad">
+                <label for="equipo">Capacidad*:</label>
+                <input type="equipo" id="equipo" placeholder="20L (Ejemplo)" name="capacidad" required>
 
                 <label for="equipo">Potencia:</label>
                 <input type="equipo" id="equipo" placeholder="5, 3, 1, 3/4, 1/2 HP (Ejemplos)" name="potencia">
@@ -147,8 +148,9 @@
             <input type="submit" value="Enviar" class="boton boton-azul">
             <% if (success) { %>
                 <script>
-                    alert('Pedido realizado');
+                    alert('Cotizacion Solicitada');
                 </script>
+                <% success = false %>
             <% } %>
         </form>
 
