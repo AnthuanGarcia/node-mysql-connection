@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/estilos/css/normalize.css">
     <link rel="stylesheet" href="/estilos/css/style.css">
+
+    <script src="/estilos/popupS-master/dist/popupS.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/estilos/popupS-master/css/popupS.css">
 </head>
 
 <body>
@@ -36,7 +39,6 @@
         </div>
         <!--Este es el contenedor-->
     </header>
-
     <main class="seccion contenedor">
         <h2 class="fw-300 centrar-texto ">Productos</h2>
             <div class="contenedor-anuncios">
@@ -49,16 +51,13 @@
                             <p>Salida de la bomba 10 Amp</p>
                             <p>El motor de aire maximo 1HP</p> -->
                             <p><%= products[i].descripcion %></p>
-                            <p class="precio">$<%= products[i].precioPro %></p>
-                            <a href="#" class="boton boton-azul d-block">Comprar</a>
+                            <p class="precio" name="precioProducto">$<%= products[i].precioPro %></p>
+                            <a href="/venta/id=<%= products[i].idProductos %>" class="boton boton-azul d-block" name="<%= i %>">Comprar</a>
                         </div>
                     </div>
                 <% } %>
             </div>
     </main>
-
-
-
     <footer class="site-footer seccion">
         <div class="contenedor contenedor-footer">
             <nav id="navegacion" class="navegacion">

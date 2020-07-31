@@ -1,0 +1,102 @@
+<!--En Ubuntu Ctrl + Shift + I para identar el codigo-->
+<!DOCTYPE html>
+<html lang="es-mx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>IMCH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="js.js"></script>
+    <link rel="stylesheet" href="/estilos/css/normalize.css">
+    <link rel="stylesheet" href="/estilos/css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="/">
+                    <img src="/estilos/img/imch.svg" alt="Logotipo de bienes raices">
+                </a>
+                <div class="mobile-menu">
+                    <a href="#navegacion">
+                        <img src="/estilos/img/barras.svg" alt="Icono menu">
+                    </a>
+                </div>
+                <nav id="navegacion" class="navegacion">
+                    <a href="/index">Inicio</a>
+                    <a href="/productos">Productos</a>
+                    <a href="/servicios">Servicios</a>
+                    <a href="/cotizaciones">Cotizaciones</a>
+                </nav>
+            </div>
+        </div>
+        <!--Este es el contenedor-->
+    </header>
+
+
+
+    <main class="contenedor seccion contenido-centrado">
+
+        <h1 class="fw-300 centrar-texto">Información para el pedido</h1>
+        <form action="/cotizaciones" method="POST">
+            <fieldset>
+                <label>* Campos necesarios</label>
+                <legend>Información del Solicitante</legend>
+                <label for="nombre">Nombre(s)*:</label>
+                <input type="text" id="nombre" placeholder="Nombre(s)" name="nombre" required>
+
+                <label for="apellidoP">Apellido(s)*:</label>
+                <input type="text" id="apellidoP" placeholder="Apellido(s)" name="apellido" required>
+
+                <label for="email">E-mail*:</label>
+                <input type="email" id="email" placeholder="Tu correo electrónico" name="email" required>
+
+                <label for="tel">Teléfono*:</label>
+                <input type="tel" id="tel" placeholder="Tu teléfono" name="telefono" required>
+
+            </fieldset>
+            <!-- <fieldset>
+                <legend>Contacto</legend>
+                <p>Como desea ser contactado:</p>
+
+                <div class="forma-contacto">
+
+                    <label for="telefono">Telefono:</label>
+                    <input type="radio" name="contacto" value="telefono" id="telefono">
+
+                    <label for="correo">E-mail:</label>
+                    <input type="radio" name="contacto" value="correo" id="correo">
+
+                </div>
+
+                <p>Si eligio Telefono, elija la fecha y hora:</p>
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha">
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora">
+            </fieldset> -->
+            <input type="submit" value="Enviar" class="boton boton-azul">
+        </form>
+
+    </main>
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav id="navegacion" class="navegacion">
+                <a href="/index">Inicio</a>
+                <a href="/productos">Productos</a>
+                <a href="/servicios">Servicios</a>
+                <a href="/cotizaciones">Cotizaciones</a>
+            </nav>
+            <p class="copyright">Todos los derechos reservados 2020 &reg; </p>
+        </div>
+    </footer>
+</body>
+
+</html>

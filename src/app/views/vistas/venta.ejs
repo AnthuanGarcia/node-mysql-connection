@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre producto</title> <!-- ******************* Variable ***************** -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/estilos/css/normalize.css">
+    <link rel="stylesheet" href="/estilos/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="/">
+                    <img src="/estilos/img/imch.svg" alt="Logotipo de bienes raices">
+                </a>
+                <div class="mobile-menu">
+                    <a href="#navegacion">
+                        <img src="/estilos/img/barras.svg" alt="Icono menu">
+                    </a>
+                </div>
+                <nav id="navegacion" class="navegacion">
+                    <a href="/index">Inicio</a>
+                    <a href="/productos">Productos</a>
+                    <a href="/servicios">Servicios</a>
+                    <a href="/cotizaciones">Cotizaciones</a>
+                </nav>
+            </div>
+        </div>
+        <!--Este es el contenedor-->
+    </header>
+
+    <div class="contenedor">
+        <h1><%= pro[0].nombre %></h1> <!-- ******************* Variable ***************** -->
+        <main class="contenido-nosotros">
+            <div class="imagen">
+                <img src="/estilos/img/indice.jpeg" alt="Imagen sobre nosotros">
+            </div>
+            <div class="texto-nosotros">
+                <blockquote>Descripcion</blockquote>
+                <p></p>
+
+                <blockquote>Cantidad</blockquote>
+                <input type="number" id="cantidad" min="0" style="width: 12rem;" required>
+
+                <blockquote>Precio</blockquote>
+                <p>$</p>
+
+                <a href="/pedido" class="boton boton-azul d-block">Comprar</a>
+        
+            </div>
+    </div>
+</body>
+</html>
