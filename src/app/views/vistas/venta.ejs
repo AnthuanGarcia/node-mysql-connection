@@ -1,55 +1,138 @@
+<!--En Ubuntu Ctrl + Shift + I para identar el codigo-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre producto</title> <!-- ******************* Variable ***************** -->
+    <title><%= pro[0].nombre %>-IMCH</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/estilos/css/normalize.css">
     <link rel="stylesheet" href="/estilos/css/style.css">
+    <link rel="stylesheet" href="/estilos/css/slider.css">
 </head>
+
 <body>
     <header class="site-header">
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="/">
-                    <img src="/estilos/img/imch.svg" alt="Logotipo de bienes raices">
+                    <img src="/estilos/img/imch.svg" alt="IMCH">
                 </a>
-                <div class="mobile-menu">
-                    <a href="#navegacion">
-                        <img src="/estilos/img/barras.svg" alt="Icono menu">
-                    </a>
-                </div>
-                <nav id="navegacion" class="navegacion">
+
+                <a href="#nav" class="mobile-menu">
+                    <img src="/estilos/img/barras.svg" alt="Icono menu">
+                </a>
+
+                <nav id="nav" class="navegacion navegacion-principal">
                     <a href="/index">Inicio</a>
                     <a href="/productos">Productos</a>
                     <a href="/servicios">Servicios</a>
                     <a href="/cotizaciones">Cotizaciones</a>
+                    <!-- <a href="#" class="cerrar">
+                        <i class="fas fa-times"></i>
+                    </a> -->
+
                 </nav>
             </div>
+
+
+
         </div>
         <!--Este es el contenedor-->
     </header>
+    <div class="contenedor seccion contenido-centrado">
+        <h1 class="centrar-texto negrita"><%= pro[0].nombre %></h1>
+        <div class="blog-slider__container">
 
-    <div class="contenedor">
-        <h1><%= pro[0].nombre %></h1> <!-- ******************* Variable ***************** -->
-        <main class="contenido-nosotros">
-            <div class="imagen">
-                <img src="/estilos/img/indice.jpeg" alt="Imagen sobre nosotros">
+            <div class="blogSlides fade" style="display: none">
+                <div class="blog-slider__numbertext">1 / 4</div>
+                <img src="/estilos/img/indice.jpeg" style="width:100%">
+                <div class="blog-slider__text">Imagen Uno</div>
             </div>
-            <div class="texto-nosotros">
-                <blockquote>Descripcion</blockquote>
-                <p></p>
 
-                <blockquote>Cantidad</blockquote>
-                <input type="number" id="cantidad" min="0" style="width: 12rem;" required>
-
-                <blockquote>Precio</blockquote>
-                <p>$</p>
-
-                <a href="/pedido" class="boton boton-azul d-block">Comprar</a>
-        
+            <div class="blogSlides fade" style="display: none">
+                <div class="blog-slider__numbertext">2 / 4</div>
+                <img src="/estilos/img/indice1.jpeg" style="width:100%">
+                <div class="blog-slider__text">Imagen Dos</div>
             </div>
+
+            <div class="blogSlides fade" style="display: none">
+                <div class="blog-slider__numbertext">3 / 4</div>
+                <img src="/estilos/img/indice2.jpeg" style="width:100%">
+                <div class="blog-slider__text">Imagen Tres</div>
+            </div>
+            <div class="blogSlides fade" style="display: block">
+                <div class="blog-slider__numbertext">4 / 4</div>
+                <img src="/estilos/img/Flyer Abril 2018.jpeg" style="width:100%">
+                <div class="blog-slider__text">Imagen Cuatro</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <br>
+
+        <div class="blogSlider__dots" style="text-align:center">
+            <span class="blogSlider__dots--dot" onclick="currentSlide(1)"></span>
+            <span class="blogSlider__dots--dot" onclick="currentSlide(2)"></span>
+            <span class="blogSlider__dots--dot" onclick="currentSlide(3)"></span>
+            <span class="blogSlider__dots--dot" onclick="currentSlide(4)"></span>
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("blogSlides");
+                var dots = document.getElementsByClassName("blogSlider__dots--dot");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+        <!--.resumen-producto-->
+        <h3 class="">Precio : <span class="precio">$<%= pro[0].precioPro %> MX</span></h3>
+        <p><%= pro[0].descripcion %></p>
+
+        <div class="ver-todas">
+            <a href="/pedido/id=<%= pro[0].idProductos %>/name=<%= pro[0].nombre %>" class="boton boton-azul">Pedir</a>
+        </div>
+
     </div>
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav id="navegacion" class="navegacion">
+                <a href="/index">Inicio</a>
+                <a href="/productos">Productos</a>
+                <a href="/servicios">Servicios</a>
+                <a href="/cotizaciones">Cotizaciones</a>
+            </nav>
+            <p class="copyright">Todos los derechos reservados 2020 &reg; </p>
+        </div>
+    </footer>
+
 </body>
+
 </html>

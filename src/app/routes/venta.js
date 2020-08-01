@@ -1,13 +1,14 @@
-// const dbConnection = require('../../config/dbConnection');
+const dbConnection = require('../../config/dbConnection');
 
-// module.exports = app => {
-//     const conecction = dbConnection();
+module.exports = app => {
+    const connection = dbConnection();
 
-//     app.get('/venta', (req, res) => {
-//         conecction.query('SELECT * FROM productos;', (err, result) => {
-//             res.render('vistas/venta', {
-//                 pro: result
-//             });
-//         });
-//     });
-// }
+    app.get('/venta/id=:id', (req, res) => {
+        const idP = req.params.id;
+        connection.query(`SELECT * FROM productos WHERE idProductos = ${idP};`, (err, result) => {
+          res.render('vistas/venta', {
+            pro: result
+          });
+        });
+      });
+}
