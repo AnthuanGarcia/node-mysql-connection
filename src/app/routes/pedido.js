@@ -1,5 +1,6 @@
 const dbConnection = require('../../config/dbConnection');
 const sendMail = require('./util/sendMail');
+const factura = require('./util/pdf');
 
 var success = 0;
 var idPro;
@@ -30,12 +31,32 @@ module.exports = app => {
                                             '${cliente.apellido}', null,\
                                             '${cliente.email}', ${cliente.telefono})`);
       connection.query(`CALL agregarFactura(null, NOW(), (SELECT idCliente FROM cliente ORDER BY idCliente DESC LIMIT 1), 'efectivo');`);
+
+      connection.query(ultFactura, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+          pedido["idFactura"] = result[0].idFactura;
+        }
+      });
+
+      connection.query(precioProducto, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+          pedido["precioProducto"] = result[0].precioPro;
+        }
+      });
+
       connection.query(`CALL NewPedido(null, ${ultFactura}, ${pedido.idP}, ${pedido.cantidad}, ${precioProducto})`, 
       (err, result) => {
         if (err){
           res.redirect('/index');
           console.log(err);
         } else {
+          factura(cliente, pedido);
           sendMail(cliente, pedido);
           success = true;
           res.redirect('/pedido/id=:id/name=:name');

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cabecera {
+    width: 100%;
+    background-color: #400870;
+  }
+
+.cabe-cont {
+    width: 50%;
+    color: white;
+    margin: 10px;
+    padding: 5px 5px 5px 5px;
+    font-size: 8pt;
+  }
+
+.logo{
+    text-align: center;
+}
+
+.contenedor{
+    margin: 20px 20px 20px 20px; 
+}
+
+.datos-cliente{
+    margin: 0;
+    padding: 0;
+}
+
+.espacio{
+    margin: 0;
+    padding: 0;
+}
+
+.titulo{
+    font-size: 28pt;
+    margin-top: 30px;
+}
+
+table.blueTable {
+    border: 2px solid #FFFFFF;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+
+  table.blueTable td, table.blueTable th {
+    padding: 3px 2px;
+  }
+
+  table.blueTable tbody td {
+    font-size: 13px;
+  }
+ 
+  table.blueTable thead th {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+  }
+
+  .numero, .cantidad, .precio, .total{
+      width: 10%;
+  }
+
+  .dato-num{
+      font-weight: bold;
+      border-style : Solid;
+      border-color : #FFFFFF;
+      border-width : 5px;
+      background-color: #400B70;
+      color: white;
+  }
+
+  .descripcion{
+      width: 60%;
+  }
+
+.campos{
+  background : #E9E4E9;
+  border-style : Solid;
+  border-color : #FFFFFF;
+  border-width : 2px;
+}
+
+.total-txt{
+    margin-top: 100px;
+    color: #400870;
+    font-size: 23pt;
+    margin-bottom: 0;
+}
+
+.total-dinero{
+    font-size: 18pt;
+    text-align: right;
+}
+
+.detalles{
+    text-align: right;
+}

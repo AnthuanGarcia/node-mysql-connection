@@ -30,9 +30,6 @@ module.exports = app => {
             res.redirect('/cotizaciones');
             console.log(err);
           } else {
-
-            console.log(cotizacion);
-
             sendMail(cliente, cotizacion);
             success = true;
             res.redirect('/cotizaciones');

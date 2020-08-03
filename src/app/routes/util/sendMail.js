@@ -8,8 +8,10 @@ module.exports =
 function sendMail(cliente, pedido){
     let body;
     let subject;
+    let attachments;
 
-    if ((Object.keys(pedido).length) > 7){
+    if (!('idFactura' in pedido)){
+      attachments = undefined;
       subject = `Solicitud de cotizacion de ${cliente.nombre + ' ' + cliente.apellido}`;
       body = `<body>
                 <h1>Solicitud de cotizacion</h1>
@@ -31,6 +33,11 @@ function sendMail(cliente, pedido){
                 </div>
               </body>`
     } else {
+      attachments = [{
+        filename: `Factura_${pedido.idFactura}`,
+        path: './public/pdfs/xd.pdf',
+        contentType: 'application/pdf'
+      }];
       subject = `Solicitud de pedido de ${cliente.nombre + ' ' + cliente.apellido}`;
       body = `<body>
                 <h1>Pedido de ${pedido.name}</h1>
@@ -48,7 +55,7 @@ function sendMail(cliente, pedido){
                 </div>
               </body>`
     }
-    
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         secure: false,
@@ -66,7 +73,8 @@ function sendMail(cliente, pedido){
         from: remitente,
         to: destinatario,
         subject: subject,
-        html: body
+        html: body,
+        attachments: attachments
     }
     
     transporter.sendMail(mailOptions, function(error, info){
