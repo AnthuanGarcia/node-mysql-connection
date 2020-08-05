@@ -27,7 +27,7 @@ module.exports = admin => {
                 if (result.length > 0) {
                     req.session.loggedin = true;
                     req.session.username = usuario;
-                    res.redirect('/panel/cotizacion')
+                    res.redirect('/panel')
                 } else {
                     res.send('<h1>Usuario o contraseña incorrecto :(</h1>');
                 }

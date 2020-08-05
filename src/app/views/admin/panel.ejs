@@ -35,36 +35,41 @@
                 <li class="nav-item" role="presentation">
                   <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Insertar</a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <!-- <li class="nav-item" role="presentation">
                   <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Actualizar</a>
-                </li>
+                </li> -->
                 <li class="nav-item" role="presentation">
                   <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Eliminar</a>
                 </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <% if (cotizacion) { %>
-                        <%- include('partials/forms/form_cotizacion_insert')%>
-                    <% } %>
+                        <% if (cotizacion) { %>
+                            <%- include('partials/forms/insert/form_cotizacion_insert')%>
+                        <% } %>
 
-                    <% if (cliente) { %>
-                        <%- include('partials/forms/form_cliente_insert')%>
-                    <% } %>
+                        <% if (cliente) { %>
+                            <%- include('partials/forms/insert/form_cliente_insert')%>
+                        <% } %>
 
-                    <% if (producto) { %>
-                        <%- include('partials/forms/form_producto_insert')%>
-                    <% } %>
+                        <% if (producto) { %>
+                            <%- include('partials/forms/insert/form_producto_insert')%>
+                        <% } %>
 
-                    <% if (pedido) { %>
-                        <%- include('partials/forms/form_pedido_insert')%>
-                    <% } %>
+                        <% if (pedido) { %>
+                            <%- include('partials/forms/insert/form_pedido_insert')%>
+                        <% } %>
 
-                    <% if (factura) { %>
-                        <%- include('partials/forms/form_factura_insert')%>
-                    <% } %>
+                        <% if (factura) { %>
+                            <%- include('partials/forms/insert/form_factura_insert')%>
+                        <% } %>
+
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="Insertar">
+                        </div>
+                    </form>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <!-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <form action="/update" method="POST">
                         <div class="form-group">
                             <label for="Nombre producto">Id Cotizacion</label>
@@ -75,16 +80,31 @@
                             <input type="text" value="" class="form-control">
                         </div>
                     </form>
-                </div>
+                </div> -->
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <form action="/update" method="POST">
+                    
+                        <% if (cotizacion) { %>
+                            <%- include('partials/forms/delete/form_cotizacion_delete') %>
+                        <% } %>
+
+                        <% if (cliente) { %>
+                            <%- include('partials/forms/delete/form_cliente_delete')%>
+                        <% } %>
+
+                        <% if (producto) { %>
+                            <%- include('partials/forms/delete/form_producto_delete')%>
+                        <% } %>
+
+                        <% if (pedido) { %>
+                            <%- include('partials/forms/delete/form_pedido_delete')%>
+                        <% } %>
+
+                        <% if (factura) { %>
+                            <%- include('partials/forms/delete/form_factura_delete')%>
+                        <% } %>
+
                         <div class="form-group">
-                            <label for="Nombre producto">Id Cotizacion</label>
-                            <input type="number" value="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="Nombre producto">Nombre cliente</label>
-                            <input type="text" value="" class="form-control">
+                            <input class="btn btn-primary" type="submit" value="Eliminar">
                         </div>
                     </form>
                 </div>

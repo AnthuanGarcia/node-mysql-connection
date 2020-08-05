@@ -1,9 +1,10 @@
 module.exports = admin => {
-
-    connection.query('SELECT idDetalle, idFactura, P.nombre AS nombre,\
+    
+    admin.get('/panel/pedido', (req, res) => {
+        connection.query('SELECT idDetalle, idFactura, P.nombre AS nombre,\
                     detalle.cantidad, precio FROM detalle, productos AS P\
-                    WHERE detalle.idProductos = P.idProductos;', (err, result) =>{
-        admin.get('/panel/pedido', (req, res) => {
+                    WHERE detalle.idProductos = P.idProductos\
+                    ORDER BY idDetalle ASC;', (err, result) =>{
             console.log(err);
             if (req.session.loggedin) {
                 res.render('admin/panel', {
@@ -20,4 +21,31 @@ module.exports = admin => {
             }
         });
     });
+
+    admin.post('/insertar/pedido', (req, res) => {
+        const {idFactura, idProductos, cantidad} = req.body;
+
+        const precio = `(SELECT precioPro FROM productos WHERE idProductos = ${idProductos})`;
+
+        connection.query(`CALL NewPedido(null, ${idFactura}, ${idProductos}, ${cantidad}, ${precio})`, (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/panel/pedido');
+            }
+        });
+    });
+
+    admin.post('/eliminar/pedido', (req, res) => {
+        const {idDetalle} = req.body;
+
+        connection.query(`DELETE FROM detalle WHERE idDetalle = ${idDetalle};`, (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/panel/pedido');
+            }
+        });
+    });
+
 };

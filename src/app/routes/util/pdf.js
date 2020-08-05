@@ -1,5 +1,6 @@
 const pdf = require('html-pdf');
 const fs = require('fs');
+const sendMail = require('./sendMail');
 
 module.exports = 
 function factura(cliente, pedido){
@@ -94,8 +95,12 @@ function factura(cliente, pedido){
     pdf.create(content, config).toFile(`./public/pdfs/Factura_N${pedido.idFactura}.pdf`, (err, res) => {
         if (err) {
             console.log(err);
+            return false
         } else {
             console.log(res);
+            sendMail(cliente, pedido);
         }
     });
+
+    return true;
 }

@@ -34,8 +34,8 @@ function sendMail(cliente, pedido){
               </body>`
     } else {
       attachments = [{
-        filename: `Factura_${pedido.idFactura}`,
-        path: './public/pdfs/xd.pdf',
+        filename: `Factura_N${pedido.idFactura}`,
+        path: `./public/pdfs/Factura_N${pedido.idFactura}.pdf`,
         contentType: 'application/pdf'
       }];
       subject = `Solicitud de pedido de ${cliente.nombre + ' ' + cliente.apellido}`;
@@ -53,7 +53,7 @@ function sendMail(cliente, pedido){
                     <p><strong>Producto pedido: </strong>${pedido.name}</p>
                     <p><strong>Cantidad: </strong>${pedido.cantidad}</p>
                 </div>
-              </body>`
+              </body>`;
     }
 
     const transporter = nodemailer.createTransport({
