@@ -28,7 +28,6 @@ module.exports = app => {
         (err, result) => {
           if (err){
             res.redirect('/cotizaciones');
-            console.log(err);
           } else {
             sendMail(cliente, cotizacion);
             success = true;

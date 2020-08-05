@@ -54,7 +54,6 @@ module.exports = app => {
       (err, result) => {
         if (err){
           res.redirect('/index');
-          console.log(err);
         } else {
           factura(cliente, pedido);
           success = true;
