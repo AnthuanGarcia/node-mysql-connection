@@ -1,0 +1,18 @@
+<thead>
+    <tr>
+        <th scope="col">Id Factura</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Tipo Pago</th>
+    </tr>
+</thead>
+<tbody>
+    <% for(i = 0; i < factu.length; i++) {%>
+        <tr class="seleccionar">
+            <th scope="row"><%= factu[i].idFactura %></td>
+            <td><%= factu[i].fecha %></td>
+            <td><%= factu[i].nombre %></td>
+            <td><%= factu[i].tipoPago %></td>
+        </tr>
+    <% } %>
+</tbody>

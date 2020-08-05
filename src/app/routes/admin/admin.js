@@ -1,6 +1,3 @@
-const app = require("../../../config/server");
-
-var nombreCliente;
 
 module.exports = admin => {
 
@@ -14,13 +11,20 @@ module.exports = admin => {
         }
     });
 
-    connection.query('SELECT * FROM cotizacion;', (err, result) =>{
-        
-        admin.get('/panel', (req, res) => {
+    connection.query('SELECT idCotizacion, DATE_FORMAT(fecha, "%d-%m-%Y") AS fecha,\
+                     cantidad, equipo, codigo, capacidad, potencia, detalles\
+                     FROM cotizacion', 
+        (err, result) =>{
+        admin.get('/panel/cotizacion', (req, res) => {
             if (req.session.loggedin) {
                 res.render('admin/panel', {
                     coti: result,
-                    name: nombreCliente
+                    name: nombreCliente,
+                    cotizacion: true,
+                    cliente: false,
+                    pedido: false,
+                    factura: false,
+                    producto: false
                 });
             } else {
                 res.send('<h1>Ingrese para acceder</h1>');

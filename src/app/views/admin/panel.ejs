@@ -1,63 +1,94 @@
 <%- include('partials/header') %>
 
 <body>
-    <header class="cabecera">
-        <h1>El admin</h1>
-        <a href="/logout">Salir</a>
-    </header>
+    <%- include('partials/nav')%>
     <section class="panel-admin">
         <div class="chiquito">
             <div class="movil">
                 <table class="table" id="tabla">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id Cotizacion</th>
-                            <th scope="col">Nombre Cliente</th>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Cantidad de equipos</th>
-                            <th scope="col">Equipo</th>
-                            <th scope="col">Codigo</th>
-                            <th scope="col">Capacidad</th>
-                            <th scope="col">Potencia</th>
-                            <th scope="col">Detalles</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(i = 0; i < coti.length; i++) {%>
-                            <tr class="seleccionar">
-                                <th scope="row"><%= coti[i].idCotizacion %></td>
-                                <td id="ts"><%= name[i].nombre %></td>
-                                <td><%= coti[i].fecha %></td>
-                                <td><%= coti[i].cantidad %></td>
-                                <td><%= coti[i].equipo %></td>
-                                <td><%= coti[i].codigo %></td>
-                                <td><%= coti[i].capacidad %></td>
-                                <td><%= coti[i].potencia %></td>
-                                <td><%= coti[i].detalles %></td>
-                            </tr>
-                        <% } %>
-                    </tbody>
+                    
+                    <% if (cotizacion) { %>
+                        <%- include('partials/tables/tbl_cotizacion')%>
+                    <% } %>
+
+                    <% if (cliente) { %>
+                        <%- include('partials/tables/tbl_cliente')%>
+                    <% } %>
+
+                    <% if (producto) { %>
+                        <%- include('partials/tables/tbl_producto')%>
+                    <% } %>
+
+                    <% if (pedido) { %>
+                        <%- include('partials/tables/tbl_detalle')%>
+                    <% } %>
+
+                    <% if (factura) { %>
+                        <%- include('partials/tables/tbl_factura')%>
+                    <% } %>
+
                 </table>
             </div>
         </div>
-        <script>
-            function myFunction() {
-              alert(document.getElementById("tabla").rows[0].cells.namedItem("ts").innerHTML);
-            }
-        </script>
         <div class="opciones">
-            <form action="/update" method="POST">
-                <div class="form-group">
-                    <label for="Nombre producto">Id Cotizacion</label>
-                    <input type="number" value="" class="form-control">
-                    <button type="submit" class="btn btn-primary xd">Actualizar</button>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Insertar</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Actualizar</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Eliminar</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <% if (cotizacion) { %>
+                        <%- include('partials/forms/form_cotizacion_insert')%>
+                    <% } %>
+
+                    <% if (cliente) { %>
+                        <%- include('partials/forms/form_cliente_insert')%>
+                    <% } %>
+
+                    <% if (producto) { %>
+                        <%- include('partials/forms/form_producto_insert')%>
+                    <% } %>
+
+                    <% if (pedido) { %>
+                        <%- include('partials/forms/form_pedido_insert')%>
+                    <% } %>
+
+                    <% if (factura) { %>
+                        <%- include('partials/forms/form_factura_insert')%>
+                    <% } %>
                 </div>
-                <div class="form-group">
-                    <label for="Nombre producto">Nombre cliente</label>
-                    <input type="text" value="" class="form-control">
-                    <button type="submit" class="btn btn-primary xd">Actualizar</button>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <form action="/update" method="POST">
+                        <div class="form-group">
+                            <label for="Nombre producto">Id Cotizacion</label>
+                            <input type="number" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Nombre producto">Nombre cliente</label>
+                            <input type="text" value="" class="form-control">
+                        </div>
+                    </form>
                 </div>
-            </form>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <form action="/update" method="POST">
+                        <div class="form-group">
+                            <label for="Nombre producto">Id Cotizacion</label>
+                            <input type="number" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Nombre producto">Nombre cliente</label>
+                            <input type="text" value="" class="form-control">
+                        </div>
+                    </form>
+                </div>
+              </div>
         </div>
     </section>  
 

@@ -12,6 +12,10 @@ require('./app/routes/downloads')(app);
 
 require('./app/routes/admin/admin')(admin);
 require('./app/routes/admin/login')(admin);
+require('./app/routes/admin/cliente')(admin);
+require('./app/routes/admin/producto')(admin);
+require('./app/routes/admin/pedido')(admin);
+require('./app/routes/admin/facturas')(admin);
 
 app.listen(app.get('port'), () => {
     console.log("Servidor en el puerto ", app.get('port'));

@@ -1,0 +1,28 @@
+<thead>
+    <tr>
+        <th scope="col">Id Cotizacion</th>
+        <th scope="col">Nombre Cliente</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Cantidad de equipos</th>
+        <th scope="col">Equipo</th>
+        <th scope="col">Codigo</th>
+        <th scope="col">Capacidad</th>
+        <th scope="col">Potencia</th>
+        <th scope="col">Detalles</th>
+    </tr>
+</thead>
+<tbody>
+    <% for(i = 0; i < coti.length; i++) {%>
+        <tr class="seleccionar">
+            <th scope="row"><%= coti[i].idCotizacion %></td>
+            <td><%= name[i].nombre %></td>
+            <td><%= coti[i].fecha %></td>
+            <td><%= coti[i].cantidad %></td>
+            <td><%= coti[i].equipo %></td>
+            <td><%= coti[i].codigo %></td>
+            <td><%= coti[i].capacidad %></td>
+            <td><%= coti[i].potencia %></td>
+            <td><%= coti[i].detalles %></td>
+        </tr>
+    <% } %>
+</tbody>

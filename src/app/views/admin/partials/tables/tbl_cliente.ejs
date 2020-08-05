@@ -1,0 +1,18 @@
+<thead>
+    <tr>
+        <th scope="col">Id Cliente</th>
+        <th scope="col">Nombre Cliente</th>
+        <th scope="col">email</th>
+        <th scope="col">Telefono</th>
+    </tr>
+</thead>
+<tbody>
+    <% for(i = 0; i < cli.length; i++) {%>
+        <tr class="seleccionar">
+            <th scope="row"><%= cli[i].idCliente %></td>
+            <td id="ts"><%= cli[i].nombre %> <%= cli[i].apellido %></td>
+            <td><%= cli[i].email %></td>
+            <td><%= cli[i].telefono %></td>
+        </tr>
+    <% } %>
+</tbody>

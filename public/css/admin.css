@@ -2,21 +2,15 @@ body{
     margin: 0;
 }
 
-.cabecera{
-    height: 6rem;
-    background-color: rgb(56, 56, 56);
-    color: white;
-}
-
 .chiquito{
     align-self: center;
     width: 65%;
-    height: 35rem;
-    overflow: scroll;
+    height: 37rem;
 }
 
 .movil{
     height: 100%;
+    overflow: scroll;
 }
 
 .panel-admin{
@@ -30,6 +24,8 @@ body{
 
 .xd{
     margin-top: 0.4rem;
+    margin-right: 0.4rem;
+    margin-left: 0.4rem;
 }
 
 .seleccionar:hover{

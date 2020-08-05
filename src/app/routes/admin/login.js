@@ -27,7 +27,7 @@ module.exports = admin => {
                 if (result.length > 0) {
                     req.session.loggedin = true;
                     req.session.username = usuario;
-                    res.redirect('/panel')
+                    res.redirect('/panel/cotizacion')
                 } else {
                     res.send('<h1>Usuario o contraseña incorrecto :(</h1>');
                 }
@@ -39,9 +39,8 @@ module.exports = admin => {
         }
     });
 
-    admin.get('/logout', (req, res) => {
+    admin.get('/panelout', (req, res) => {
         req.session.destroy();
-        res.send("<h1>Salida exitosa</h1>\
-                <a href='index'>Volver a la pagina principal</a>");
+        res.redirect('/index');
     })
 }

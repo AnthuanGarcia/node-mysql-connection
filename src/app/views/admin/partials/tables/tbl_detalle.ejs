@@ -1,0 +1,20 @@
+<thead>
+    <tr>
+        <th scope="col">Id Detalle</th>
+        <th scope="col">Id Factura</th>
+        <th scope="col">Nombre Producto</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio</th>
+    </tr>
+</thead>
+<tbody>
+    <% for(i = 0; i < deta.length; i++) {%>
+        <tr class="seleccionar">
+            <th scope="row"><%= deta[i].idDetalle %></td>
+            <td><%= deta[i].idFactura %></td>
+            <td><%= deta[i].nombre %></td>
+            <td><%= deta[i].cantidad %></td>
+            <td><%= deta[i].precio %></td>
+        </tr>
+    <% } %>
+</tbody>
