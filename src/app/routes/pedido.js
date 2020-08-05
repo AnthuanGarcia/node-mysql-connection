@@ -1,4 +1,4 @@
-const dbConnection = require('../../config/dbConnection');
+// const dbConnection = require('../../config/dbConnection');
 const sendMail = require('./util/sendMail');
 const factura = require('./util/pdf');
 
@@ -6,17 +6,20 @@ var success = 0;
 var idPro;
 var nombrePro;
 
+let ultFactura = '(SELECT idFactura FROM factura ORDER BY idFactura DESC LIMIT 1)';
 module.exports = app => {
 
-    const connection = dbConnection();
+    // const connection = dbConnection();
 
     app.get('/pedido/id=:id/name=:name', (req, res) => {
       idPro = req.params.id;
       nombrePro = req.params.name;
-
-      res.render('vistas/pedido',{success:success});
-      success = false;
+      
+      res.render('vistas/pedido',{
+        success: success
       });
+      success = false;
+    });
 
     app.post(`/pedido`, (req, res) => {
       const cliente = {nombre, apellido, email, telefono} = req.body;
@@ -24,7 +27,6 @@ module.exports = app => {
       pedido["idP"] = idPro;
       pedido["name"] = nombrePro;
 
-      let ultFactura = '(SELECT idFactura FROM factura ORDER BY idFactura DESC LIMIT 1)';
       let precioProducto = `(SELECT precioPro FROM productos WHERE idProductos = ${pedido.idP})`; 
 
       connection.query(`CALL agregarClientes(null, '${cliente.nombre}', \
@@ -36,7 +38,6 @@ module.exports = app => {
         if (err) {
           console.log(err);
         } else {
-          console.log(result);
           pedido["idFactura"] = result[0].idFactura;
         }
       });
@@ -45,7 +46,6 @@ module.exports = app => {
         if (err) {
           console.log(err);
         } else {
-          console.log(result);
           pedido["precioProducto"] = result[0].precioPro;
         }
       });

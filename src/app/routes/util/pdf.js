@@ -91,7 +91,7 @@ function factura(cliente, pedido){
         "format": "A4" 
     };
 
-    pdf.create(content, config).toFile('./public/pdfs/xd.pdf', (err, res) => {
+    pdf.create(content, config).toFile(`./public/pdfs/Factura_N${pedido.idFactura}.pdf`, (err, res) => {
         if (err) {
             console.log(err);
         } else {

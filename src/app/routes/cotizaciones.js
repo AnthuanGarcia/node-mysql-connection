@@ -1,10 +1,10 @@
-const dbConnection = require('../../config/dbConnection');
+// const dbConnection = require('../../config/dbConnection');
 const sendMail = require('./util/sendMail');
 
 var success = 0;
 module.exports = app => {
 
-    const connection = dbConnection();
+    // const connection = dbConnection();
 
     app.get('/cotizaciones', (req, res) => {
       res.render('vistas/cotizaciones', {success: success});
