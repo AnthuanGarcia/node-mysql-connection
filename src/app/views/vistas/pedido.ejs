@@ -11,36 +11,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>IMCH</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <script src="js.js"></script>
     <link rel="stylesheet" href="/estilos/css/normalize.css">
     <link rel="stylesheet" href="/estilos/css/style.css">
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="/estilos/img/imch.svg" alt="Logotipo de bienes raices">
-                </a>
-                <div class="mobile-menu">
-                    <a href="#navegacion">
-                        <img src="/estilos/img/barras.svg" alt="Icono menu">
-                    </a>
-                </div>
-                <nav id="navegacion" class="navegacion">
-                    <a href="/index">Inicio</a>
-                    <a href="/productos">Productos</a>
-                    <a href="/servicios">Servicios</a>
-                    <a href="/cotizaciones">Cotizaciones</a>
-                </nav>
-            </div>
-        </div>
-        <!--Este es el contenedor-->
-    </header>
-
-
-
+    <%- include('partials/header')%>
     <main class="contenedor seccion contenido-centrado">
         <% if (success) {%>
             <a href="/descargar" class="boton boton-azul">Descargar Factura</a>
@@ -97,17 +73,7 @@
         </form>
     </main>
 
-    <footer class="site-footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav id="navegacion" class="navegacion">
-                <a href="/index">Inicio</a>
-                <a href="/productos">Productos</a>
-                <a href="/servicios">Servicios</a>
-                <a href="/cotizaciones">Cotizaciones</a>
-            </nav>
-            <p class="copyright">Todos los derechos reservados 2020 &reg; </p>
-        </div>
-    </footer>
+    <%- include('partials/footer')%>
 </body>
 
 </html>

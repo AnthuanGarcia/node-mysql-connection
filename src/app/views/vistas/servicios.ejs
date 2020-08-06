@@ -1,57 +1,22 @@
 <!--En Ubuntu Ctrl + Shift + I para identar el codigo-->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMCH</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/estilos/css/normalize.css">
-    <link rel="stylesheet" href="/estilos/css/style.css">
-</head>
+<%- include('partials/head')%>
 
 <body>
-    <header class="site-header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="/estilos/img/imch.svg" alt="Logotipo de bienes raices">
-                </a>
-                <div class="mobile-menu">
-                    <a href="#navegacion">
-                        <img src="/estilos/img/barras.svg" alt="Icono menu">
-                    </a>
-                </div>
-                <nav id="navegacion" class="navegacion">
-                    <a href="/index">Inicio</a>
-                    <a href="/productos">Productos</a>
-                    <a href="/servicios">Servicios</a>
-                    <a href="/cotizaciones">Cotizaciones</a>
-                </nav>
-            </div>
-
-
-
-        </div>
-        <!--Este es el contenedor-->
-    </header>
-
-
+    <%- include('partials/header')%>
 
     <main class="contenedor seccion contenido-centrado">
-        <h1 class="fw-300 centrar-texto">Nuestros Servicios</h1>
+        <h1 class="fw-300 centrar-texto lang" key="nue-ser">Nuestros Servicios</h1>
         <article class="entrada-blog">
             <div class="imagen">
                 <img src="/estilos/img/scott-graham-5fNmWej4tAA-unsplash.jpg" alt="Entrar Blog">
             </div>
             <div class="texto-entrada">
 
-                <h4>Administración del Mantenimiento</h4>
+                <h4 class="lang" key="admi-mante">Administración del Mantenimiento</h4>
                 <div class="li-padding">
-                    <li>Elaboración del plan de mantenimiento preventivo de acuerdo con las recomendaciones del fabricante del equipo. Este puede incluir equipos y edificio, para cada evento de chequeo contará con órdenes de trabajo.</li>
-                    <li>Revisión de los mantenimientos realizados por el personal de su empresa de acuerdo con las fechas del programa.</li>
-                    <li>Elaboración de los expedientes de los trabajos realizados a cada equipo.</li>
+                    <li class="lang" key="servi 1">Elaboración del plan de mantenimiento preventivo de acuerdo con las recomendaciones del fabricante del equipo. Este puede incluir equipos y edificio, para cada evento de chequeo contará con órdenes de trabajo.</li>
+                    <li class="lang" key="servi 2">Revisión de los mantenimientos realizados por el personal de su empresa de acuerdo con las fechas del programa.</li>
+                    <li class="lang" key="servi 3">Elaboración de los expedientes de los trabajos realizados a cada equipo.</li>
                 </div>
             </div>
         </article>
@@ -61,11 +26,11 @@
             </div>
             <div class="texto-entrada">
 
-                <h4>Sistemas de control</h4>
+                <h4 class="lang" key="sis-cont">Sistemas de control</h4>
                 <div class="li-padding">
-                    <li>Diseño y fabricación de dispositivos para controlar y monitorear los equipos de operación.</li>
-                    <li>Podrán encender o apagar de manera inalámbrica aires acondicionados, compresores, bombas, luminarias, etc.</li>
-                    <li>Esto hará más eficiente la operación y ayudará a disminuir el consumo de energía eléctrica.</li>
+                    <li class="lang" key="sisSer1">Diseño y fabricación de dispositivos para controlar y monitorear los equipos de operación.</li>
+                    <li class="lang" key="sisSer2">Podrán encender o apagar de manera inalámbrica aires acondicionados, compresores, bombas, luminarias, etc.</li>
+                    <li class="lang" key="sisSer3">Esto hará más eficiente la operación y ayudará a disminuir el consumo de energía eléctrica.</li>
                 </div>
             </div>
         </article>
@@ -74,10 +39,10 @@
                 <img src="/estilos/img/thomas-kelley-xVptEZzgVfo-unsplash.jpg" alt="Entrar Blog">
             </div>
             <div class="texto-entrada">
-                <h4>Estudio de ahorro de energía eléctrica.</h4>
-                <li>Elaboración de un inventario de consumo para determinar las áreas de oportunidad para el ahorro de energía eléctrica, considerando todos los sistemas como: Iluminación, aire acondicionado, aire comprimido, bombas, etc.</li>
-                <li>Después del diagnóstico se harán las recomendaciones para disminuir el consumo sin afectar la operación ni la comodidad de los colaboradores o clientes.</li>
-                <li>En este documento se podrá observar el ahorro a obtener y el retorno de la inversión si la hubiera.</li>
+                <h4 class="lang" key="estEn">Estudio de ahorro de energía eléctrica.</h4>
+                <li class="lang" key="estEn1">Elaboración de un inventario de consumo para determinar las áreas de oportunidad para el ahorro de energía eléctrica, considerando todos los sistemas como: Iluminación, aire acondicionado, aire comprimido, bombas, etc.</li>
+                <li class="lang" key="estEn2">Después del diagnóstico se harán las recomendaciones para disminuir el consumo sin afectar la operación ni la comodidad de los colaboradores o clientes.</li>
+                <li class="lang" key="estEn3">En este documento se podrá observar el ahorro a obtener y el retorno de la inversión si la hubiera.</li>
             </div>
         </article>
         <article class="entrada-blog">
@@ -85,24 +50,14 @@
                 <img src="/estilos/img/jessica-lewis-fJXv46LT7Xk-unsplash.jpg" alt="Entrar Blog">
             </div>
             <div class="texto-entrada">
-                <h4>Bitácora diaria de consumo de energéticos.</h4>
-                <li>Realización de una hoja de toma de lecturas diarias de los medidores de energéticos (Electricidad, Agua y Gas) para su monitoreo.</li>
-                <li>Al cargar los datos a una hoja de Excel se podrá determinar el consumo al día.</li>
+                <h4 class="lang" key="bita-ene">Bitácora diaria de consumo de energéticos.</h4>
+                <li class="lang" key="bita-ene1">Realización de una hoja de toma de lecturas diarias de los medidores de energéticos (Electricidad, Agua y Gas) para su monitoreo.</li>
+                <li class="lang" key="bita-ene2">Al cargar los datos a una hoja de Excel se podrá determinar el consumo al día.</li>
             </div>
         </article>
     </main>
 
-    <footer class="site-footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav id="navegacion" class="navegacion">
-                <a href="/index">Inicio</a>
-                <a href="/productos">Productos</a>
-                <a href="/servicios">Servicios</a>
-                <a href="/cotizaciones">Cotizaciones</a>
-            </nav>
-            <p class="copyright">Todos los derechos reservados 2020 &reg; </p>
-        </div>
-    </footer>
+    <%- include('partials/footer')%>
 </body>
 
 </html>

@@ -5,7 +5,6 @@ module.exports = admin => {
                     detalle.cantidad, precio FROM detalle, productos AS P\
                     WHERE detalle.idProductos = P.idProductos\
                     ORDER BY idDetalle ASC;', (err, result) =>{
-            console.log(err);
             if (req.session.loggedin) {
                 res.render('admin/panel', {
                     deta: result,

@@ -1,59 +1,27 @@
 <!--En Ubuntu Ctrl + Shift + I para identar el codigo-->
-<!DOCTYPE html>
-<html lang="es-mx">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMCH</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/estilos/css/normalize.css" type="text/css">
-    <link rel="stylesheet" href="/estilos/css/style.css" type="text/css">
-</head>
+<%- include('partials/head')%>
 
 <body>
-    <header class="site-header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="/estilos/img/imch.svg" alt="Logotipo de bienes raices">
-                </a>
-
-                <div class="mobile-menu">
-                    <a href="#navegacion">
-                        <img src="/estilos/img/barras.svg" alt="Icono menu">
-                    </a>
-                </div>
-
-                <nav id="navegacion" class="navegacion">
-                    <a href="/index">Inicio</a>
-                    <a href="/productos">Productos</a>
-                    <a href="/servicios">Servicios</a>
-                    <a href="/cotizaciones">Cotizaciones</a>
-                </nav>
-            </div>
-        </div>
-        <!--Este es el contenedor-->
-    </header>
+    <%- include('partials/header')%>
     <div class="contenedor">
-        <h1 class="fw-300 centrar-texto">Nosotros</h1>
+        <h1 class="fw-300 centrar-texto lang" key="nosotros">Nosotros</h1>
 
         <main class="contenido-nosotros">
             <div class="imagen">
                 <img src="/estilos/img/engineer-4922413_1920.jpg" alt="Imagen sobre nosotros">
             </div>
             <div class="texto-nosotros">
-                <blockquote>¿Quiénes Somos?</blockquote>
+                <blockquote class="lang" key="titulo-index">¿Quiénes Somos?</blockquote>
 
-                <p>Empresa Mexicana dedicada a servicios de mantenimiento, así como al diseño y manufactura de equipos electrónicos, con una amplia experiencia, ofrecemos servicios de mantenimiento a equipo industrial y desarrollamos diseños propios como
+                <p class="lang" key="desc-empresa">Empresa Mexicana dedicada a servicios de mantenimiento, así como al diseño y manufactura de equipos electrónicos, con una amplia experiencia, ofrecemos servicios de mantenimiento a equipo industrial y desarrollamos diseños propios como
                     personalizados de acuerdo a las necesidades de nuestros clientes.
                 </p>
-                <blockquote>Misión</blockquote>
+                <blockquote class="lang" key="mision-index">Misión</blockquote>
 
-                <p>Proveer servicios de mantenimiento, así como soluciones de automatización y control, de alta calidad y costo razonable, buscando siempre superar las expectativas de nuestros clientes.</p>
+                <p class="lang" key="cont-mision">Proveer servicios de mantenimiento, así como soluciones de automatización y control, de alta calidad y costo razonable, buscando siempre superar las expectativas de nuestros clientes.</p>
 
-                <blockquote>Visión</blockquote>
-                <p>Que cada cliente tenga un servicio 100% confiable, así como un dispositivo de control para sus equipos de confort. </p>
+                <blockquote class="lang" key="vision-index">Visión</blockquote>
+                <p class="lang" key="cont-vision">Que cada cliente tenga un servicio 100% confiable, así como un dispositivo de control para sus equipos de confort. </p>
             </div>
     </div>
     </main>
@@ -61,42 +29,42 @@
         <div class="iconos-nosotros">
             <div class="icono">
                 <img src="/estilos/img/icono1.svg" alt="Icono seguridad">
-                <h3>Seguridad</h3>
+                <h3 class="lang" key="segu">Seguridad</h3>
                 <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolorum, ut, molestiae error ullam id deleniti veritatis, iusto illo et nobis tempore impedit voluptatem quaerat est repudiandae dolores nesciunt optio.</P>
             </div>
             <div class="icono">
                 <img src="/estilos/img/icono2.svg" alt="Icono mejor precio">
-                <h3>El mejor precio</h3>
+                <h3 class="lang" key="mej-pre">El mejor precio</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat alias maxime aliquid voluptatem ad doloremque, sapiente quam amet, assumenda distinctio laudantium nulla animi commodi. Quos autem quas molestias quis necessitatibus.</p>
             </div>
             <div class="icono">
                 <img src="/estilos/img/icono3.svg" alt="Icono a tiempo">
-                <h3>A tiempo</h3>
+                <h3 class="lang" key="tiempo">A tiempo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos fugit maxime aliquam repudiandae veniam expedita esse nobis voluptate rerum asperiores facere culpa eius laborum et, hic veritatis quia illum!</p>
             </div>
         </div>
     </section>
     <section class="imagen-contacto">
         <div class="contenedor contenido-contacto">
-            <h2>Envia tu información y solicita una cotización ahora</h2>
-            <p>Rellena el formulario y en brevedad se te enviara una cotización</p>
-            <a href="/cotizaciones" class="boton boton-azul">Contactanos</a>
+            <h2 class="lang" key="coti-index">Envia tu información y solicita una cotización ahora</h2>
+            <p class="lang" key="info-cot">Rellena el formulario y en brevedad se te enviara una cotización</p>
+            <a href="/cotizaciones" class="boton boton-azul lang" key="contacto">Contactanos</a>
         </div>
     </section>
 
     <div class="seccion-inferior contenedor seccion">
         <section class="blog">
-            <h3 class="centrar-texto fw-300">Algunos de nuestros servicios</h3>
+            <h3 class="centrar-texto fw-300 lang" key="alg-serv">Algunos de nuestros servicios</h3>
             <article class="entrada-blog">
                 <div class="imagen">
                     <img src="/estilos/img/scott-graham-5fNmWej4tAA-unsplash.jpg" alt="Entrar Blog">
                 </div>
                 <div class="texto-entrada">
-                    <h4>Administración del Mantenimiento</h4>
+                    <h4 class="lang" key="admi-mante">Administración del Mantenimiento</h4>
                     <div class="li-padding">
-                        <li>Elaboración del plan de mantenimiento preventivo de acuerdo con las recomendaciones del fabricante del equipo. Este puede incluir equipos y edificio, para cada evento de chequeo contará con órdenes de trabajo.</li>
-                        <li>Revisión de los mantenimientos realizados por el personal de su empresa de acuerdo con las fechas del programa.</li>
-                        <li>Elaboración de los expedientes de los trabajos realizados a cada equipo.</li>
+                        <li class="lang" key="servi 1">Elaboración del plan de mantenimiento preventivo de acuerdo con las recomendaciones del fabricante del equipo. Este puede incluir equipos y edificio, para cada evento de chequeo contará con órdenes de trabajo.</li>
+                        <li class="lang" key="servi 2">Revisión de los mantenimientos realizados por el personal de su empresa de acuerdo con las fechas del programa.</li>
+                        <li class="lang" key="servi 3">Elaboración de los expedientes de los trabajos realizados a cada equipo.</li>
                     </div>
                 </div>
             </article>
@@ -105,32 +73,22 @@
                     <img src="/estilos/img/159536937467771733.jpeg" alt="Entrar Blog">
                 </div>
                 <div class="texto-entrada">
-                    <h4>Sistemas de control</h4>
+                    <h4 class="lang" key="sis-cont">Sistemas de control</h4>
                     <div class="li-padding">
-                        <li>Diseño y fabricación de dispositivos para controlar y monitorear los equipos de operación.</li>
-                        <li>Podrán encender o apagar de manera inalámbrica aires acondicionados, compresores, bombas, luminarias, etc.</li>
-                        <li>Esto hará más eficiente la operación y ayudará a disminuir el consumo de energía eléctrica.</li>
+                        <li class="lang" key="sisSer1">Diseño y fabricación de dispositivos para controlar y monitorear los equipos de operación.</li>
+                        <li class="lang" key="sisSer2">Podrán encender o apagar de manera inalámbrica aires acondicionados, compresores, bombas, luminarias, etc.</li>
+                        <li class="lang" key="sisSer3">Esto hará más eficiente la operación y ayudará a disminuir el consumo de energía eléctrica.</li>
                     </div>
                 </div>
             </article>
             <div class="ver-todas">
-                <a href="/servicios" class="boton boton-azul">Ver todos</a>
+                <a href="/servicios" class="boton boton-azul lang" key="ver-todos">Ver todos</a>
             </div>
         </section>
 
 
     </div>
-    <footer class="site-footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav id="navegacion" class="navegacion">
-                <a href="/index">Inicio</a>
-                <a href="/productos">Productos</a>
-                <a href="/servicios">Servicios</a>
-                <a href="/cotizaciones">Cotizaciones</a>
-            </nav>
-            <p class="copyright">Todos los derechos reservados 2020 &reg; </p>
-        </div>
-    </footer>
+    <%- include('partials/footer')%>
 </body>
 
 </html>

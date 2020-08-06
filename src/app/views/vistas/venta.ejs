@@ -13,34 +13,8 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="/estilos/img/imch.svg" alt="IMCH">
-                </a>
+    <%- include('partials/header')%>
 
-                <a href="#nav" class="mobile-menu">
-                    <img src="/estilos/img/barras.svg" alt="Icono menu">
-                </a>
-
-                <nav id="nav" class="navegacion navegacion-principal">
-                    <a href="/index">Inicio</a>
-                    <a href="/productos">Productos</a>
-                    <a href="/servicios">Servicios</a>
-                    <a href="/cotizaciones">Cotizaciones</a>
-                    <!-- <a href="#" class="cerrar">
-                        <i class="fas fa-times"></i>
-                    </a> -->
-
-                </nav>
-            </div>
-
-
-
-        </div>
-        <!--Este es el contenedor-->
-    </header>
     <div class="contenedor seccion contenido-centrado">
         <h1 class="centrar-texto negrita"><%= pro[0].nombre %></h1>
         <div class="blog-slider__container">
@@ -121,17 +95,7 @@
         </div>
 
     </div>
-    <footer class="site-footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav id="navegacion" class="navegacion">
-                <a href="/index">Inicio</a>
-                <a href="/productos">Productos</a>
-                <a href="/servicios">Servicios</a>
-                <a href="/cotizaciones">Cotizaciones</a>
-            </nav>
-            <p class="copyright">Todos los derechos reservados 2020 &reg; </p>
-        </div>
-    </footer>
+    <%- include('partials/footer')%>
 
 </body>
 
