@@ -24,21 +24,18 @@ function sendMail(cliente, pedido){
                 </div>
                 <div>
                     <h2>Informacion de la Cotizacion</h2>
-                    <p><strong>Equipo: </strong>${pedido.equipo}</p>
                     <p><strong>Cantidad de equipos: </strong>${pedido.cantidad}</p>
-                    <p><strong>Codigo: </strong>${pedido.codigo}</p>
-                    <p><strong>Capacidad: </strong>${pedido.capacidad}</p>
-                    <p><strong>Potencia: </strong>${pedido.potencia}</p>
                     <p><strong>Detalles: </strong>${pedido.detalles}</p>
                 </div>
               </body>`
     } else {
-      attachments = [{
+      attachments = undefined;
+/*    [{
         filename: `Factura_N${pedido.idFactura}`,
         path: `./public/pdfs/Factura_N${pedido.idFactura}.pdf`,
         contentType: 'application/pdf'
       }];
-      subject = `Solicitud de pedido de ${cliente.nombre + ' ' + cliente.apellido}`;
+ */      subject = `Solicitud de pedido de ${cliente.nombre + ' ' + cliente.apellido}`;
       body = `<body>
                 <h1>Pedido de ${pedido.name}</h1>
                 <div>

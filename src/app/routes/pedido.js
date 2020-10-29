@@ -1,6 +1,6 @@
 // const dbConnection = require('../../config/dbConnection');
-// const sendMail = require('./util/sendMail');
-const factura = require('./util/pdf');
+const sendMail = require('./util/sendMail');
+//const factura = require('./util/pdf');
 
 var success = 0;
 var idPro;
@@ -55,7 +55,8 @@ module.exports = app => {
         if (err){
           res.redirect('/index');
         } else {
-          factura(cliente, pedido);
+          //factura(cliente, pedido);
+          sendMail(cliente, pedido);
           success = true;
           res.redirect('/pedido/id=:id/name=:name');
         }

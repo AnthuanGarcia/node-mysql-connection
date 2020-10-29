@@ -18,27 +18,28 @@
 
 <body>
     <%- include('partials/header')%>
-    <main class="contenedor seccion contenido-centrado">
+    <%- include('partials/menulang.ejs')%>
+        <main class="contenedor seccion contenido-centrado">
 
-        <h1 class="fw-300 centrar-texto lang" key="sol-coti">Solicita una cotización</h1>
-        <form action="/cotizaciones" method="POST">
-            <fieldset>
-                <label class="lang" key="camp-nec">* Campos necesarios</label>
-                <legend class="lang" key="info-sol">Información del Solicitante</legend>
-                <label for="nombre" class="lang" key="name-coti">Nombre(s)*:</label>
-                <input type="text" id="nombre" placeholder="Nombre(s)" name="nombre" minlength="2" maxlength="40" required>
+            <h1 class="fw-300 centrar-texto lang" key="sol-coti">Solicita una cotización</h1>
+            <form action="/cotizaciones" method="POST">
+                <fieldset>
+                    <label class="lang" key="camp-nec">* Campos necesarios</label>
+                    <legend class="lang" key="info-sol">Información del Solicitante</legend>
+                    <label for="nombre" class="lang" key="name-coti">Nombre(s)*:</label>
+                    <input type="text" id="nombre" placeholder="Nombre(s)" name="nombre" minlength="2" maxlength="40" required>
 
-                <label for="apellidoP" class="lang" key="ape-coti">Apellido(s)*:</label>
-                <input type="text" id="apellidoP" placeholder="Apellido(s)" name="apellido" minlength="2" maxlength="40" required>
+                    <label for="apellidoP" class="lang" key="ape-coti">Apellido(s)*:</label>
+                    <input type="text" id="apellidoP" placeholder="Apellido(s)" name="apellido" minlength="2" maxlength="40" required>
 
-                <label for="email" calss="lang" key="ema-coti">E-mail*:</label>
-                <input type="email" id="email" placeholder="Tu correo electrónico" name="email" minlength="8" maxlength="60" required>
+                    <label for="email" calss="lang" key="ema-coti">E-mail*:</label>
+                    <input type="email" id="email" placeholder="Tu correo electrónico" name="email" minlength="8" maxlength="60" required>
 
-                <label for="tel" class="lang" key="tel-coti">Teléfono*:</label>
-                <input type="tel" id="tel" placeholder="Tu teléfono" name="telefono" required>
+                    <label for="tel" class="lang" key="tel-coti">Teléfono*:</label>
+                    <input type="tel" id="tel" placeholder="Tu teléfono" name="telefono" required>
 
-                <label for="opciones" class="lang" key="pues-coti">Puesto en la Empresa</label>
-                <select id="opciones">
+                    <label for="opciones" class="lang" key="pues-coti">Puesto en la Empresa</label>
+                    <select id="opciones">
                     <option value="" class="lang" key="opc-coti" disabled selected>--Seleccione--</option>
                     <option value="compra" class="lang" key="opc-coti1">Dueño</option>
                     <option value="vende"  class="lang" key="opc-coti2">Gerente</option>
@@ -47,28 +48,15 @@
                 </select>
 
 
-            </fieldset>
+                </fieldset>
 
-            <fieldset>
-                <legend class="lang" key="info-coti">Información de la Empresa</legend>
+                <fieldset>
+                    <legend class="lang" key="info-coti">Información de la Empresa</legend>
 
-                <label for="cantidad" class="lang" key="canti-coti">Cantidad de Equipos*:</label>
-                <input type="number" id="cantidad" min="0" name="cantidad" required>
+                    <label for="cantidad" class="lang" key="canti-coti">Cantidad de Equipos*:</label>
+                    <input type="number" id="cantidad" min="0" name="cantidad" required>
 
-                <label for="equipo" class="lang" key="equi-coti">Tipo de equipo*:</label>
-                <input type="equipo" id="equipo" placeholder="Hidroneumatico (Ejemplo)" name="equipo" required>
 
-                <label for="equipo" class="lang" key="codi-coti">Codígo:</label>
-                <input type="equipo" id="equipo" placeholder="Compresor 1(Segun haya sido etiquetado por la compañia)" name="codigo">
-
-                <label for="equipo" class="lang" key="capa-coti">Capacidad*:</label>
-                <input type="equipo" id="equipo" placeholder="20L (Ejemplo)" name="capacidad" required>
-
-                <label for="equipo" class="lang" key="pote-coti">Potencia:</label>
-                <input type="equipo" id="equipo" placeholder="5, 3, 1, 3/4, 1/2 HP (Ejemplos)" name="potencia">
-
-                <label for="mensaje" class="lang" key="infoDet-coti">Información detallada</label>
-                <div class="container atributos">
 
                     <!-- Disparador del Modal -->
                     <button type="button" class="informacion-importante lang" key="informa-coti" data-toggle="modal" data-target="#myModal">Detalles de información</button>
@@ -98,42 +86,23 @@
                         </div>
                     </div>
 
-                </div>
+                    </div>
 
-                <textarea id="mensaje" placeholder="Información adicional para la cotización" name="detalles"></textarea>
-            </fieldset>
-            <!-- <fieldset>
-                <legend>Contacto</legend>
-                <p>Como desea ser contactado:</p>
+                    <textarea id="mensaje" placeholder="Información adicional para la cotización" name="detalles"></textarea>
+                </fieldset>
 
-                <div class="forma-contacto">
+                <button type="submit" class="boton boton-azul lang" key="env-coti">Enviar</button>
+                <% if (success) { %>
+                    <script>
+                        alert('Cotizacion Solicitada');
+                    </script>
+                    <% success = false %>
+                <% } %>
+            </form>
 
-                    <label for="telefono">Telefono:</label>
-                    <input type="radio" name="contacto" value="telefono" id="telefono">
+        </main>
 
-                    <label for="correo">E-mail:</label>
-                    <input type="radio" name="contacto" value="correo" id="correo">
-
-                </div>
-
-                <p>Si eligio Telefono, elija la fecha y hora:</p>
-                <label for="fecha">Fecha:</label>
-                <input type="date" id="fecha">
-                <label for="hora">Hora:</label>
-                <input type="time" id="hora">
-            </fieldset> -->
-            <button type="submit" class="boton boton-azul lang" key="env-coti">Enviar</button>
-            <% if (success) { %>
-                <script>
-                    alert('Cotizacion Solicitada');
-                </script>
-                <% success = false %>
-            <% } %>
-        </form>
-
-    </main>
-
-    <%- include('partials/footer')%>
+        <%- include('partials/footer')%>
 </body>
 
 </html>

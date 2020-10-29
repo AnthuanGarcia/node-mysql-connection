@@ -19,12 +19,12 @@ module.exports = admin => {
         const passw = req.body.password;
 
         if (usuario && passw){
-            connection.query(`SELECT * FROM usuario WHERE usuario = '${usuario}' AND contra = '${passw}'`, 
+            connection.query(`CALL verificarUsuario('${usuario}', '${passw}');`, 
             (err, result) => {
                 if (err){
                     console.log(err);
                 }
-                if (result.length > 0) {
+                if (result[0].length > 0) {
                     req.session.loggedin = true;
                     req.session.username = usuario;
                     res.redirect('/panel')

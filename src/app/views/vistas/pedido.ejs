@@ -17,10 +17,8 @@
 
 <body>
     <%- include('partials/header')%>
+    <%- include('partials/menulang.ejs')%>
     <main class="contenedor seccion contenido-centrado">
-        <% if (success) {%>
-            <a href="/descargar" class="boton boton-azul">Descargar Factura</a>
-        <% } %>
 
         <h1 class="fw-300 centrar-texto">Información para el pedido</h1>
         <form action="/pedido" method="POST">

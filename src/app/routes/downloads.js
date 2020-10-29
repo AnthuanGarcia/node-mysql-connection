@@ -1,4 +1,4 @@
-
+/* 
 module.exports = app => {
     let ultFactura = '(SELECT idFactura FROM factura ORDER BY idFactura DESC LIMIT 1)';
 
@@ -12,3 +12,4 @@ module.exports = app => {
         });
     })
 }
+ */

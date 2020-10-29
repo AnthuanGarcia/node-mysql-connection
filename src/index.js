@@ -8,7 +8,7 @@ require('./app/routes/indexP')(app);
 require('./app/routes/cotizaciones')(app);
 require('./app/routes/venta')(app);
 require('./app/routes/pedido')(app);
-require('./app/routes/downloads')(app);
+//require('./app/routes/downloads')(app);
 
 require('./app/routes/admin/admin')(admin);
 require('./app/routes/admin/login')(admin);
